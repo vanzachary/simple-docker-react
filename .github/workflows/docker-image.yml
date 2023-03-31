@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Simple Docker Image React
 
 on:
   push:
@@ -17,4 +17,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile.dev --tag vansingco/simple-docker-react-dev:$(date +%s)
     - name: Test the project using docker image
-      run: docker run vansingco/simple-docker-react-dev npm run test -- --coverage
+      run: docker run vansingco/simple-docker-react-dev:$(date +%s) npm run test -- --coverage
