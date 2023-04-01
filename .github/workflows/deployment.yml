@@ -11,7 +11,7 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile.dev --tag simple-docker-react-test
       - name: Test the Docker image
-        run: docker run simple-docker-react-test npm run test -- --coverage
+        run: docker run -e CI=true simple-docker-react-test npm run test
       
   build:
     needs: test
